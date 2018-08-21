@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: translator-backend-gpu
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: translator-backend
+    spec:
+      containers:
+        - image: kockahonza/translator-backend:latest-gpu
+          imagePullPolicy: Always
+          name: translator-backend-gpu
+          ports:
+            - containerPort: 8000

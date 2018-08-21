@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: translator-frontend
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: translator-frontend
+    spec:
+      containers:
+        - image: kockahonza/translator-frontend
+          imagePullPolicy: Always
+          name: translator-frontend
+          ports:
+            - containerPort: 80

@@ -1,0 +1,7 @@
+# python files
+__pycache__/
+*.py[cod]
+
+# nodejs files
+node_modules/
+**/frontend/build/
