@@ -4,4 +4,7 @@ __pycache__/
 
 # nodejs files
 node_modules/
-**/frontend/build/
+frontend/build/
+
+# large model data files
+backend/app/*/*
